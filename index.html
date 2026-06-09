@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>SSPathshala | মডুলার প্ল্যাটফর্ম</title>
-    <!-- Google Fonts: Anek Bangla -->
+    <title>SSPathshala | মডুলার লার্নিং প্ল্যাটফর্ম</title>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,96 +14,119 @@
         }
         body {
             font-family: 'Anek Bangla', sans-serif;
-            background: #f4f9fe;
+            background: #f0f7fc;
             color: #0a2b3e;
             scroll-behavior: smooth;
         }
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 28px;
         }
-        /* হেডার */
+        /* হেডার স্টাইল */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
-            border-bottom: 2px solid #e2edf2;
-            margin-bottom: 28px;
+            padding: 20px 0;
+            border-bottom: 2px solid #e0edf3;
+            margin-bottom: 32px;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 16px;
         }
         .brand-area {
             display: flex;
             align-items: baseline;
-            gap: 8px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .site-title h1 {
-            font-size: 1.7rem;
+            font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #0f4c5f, #1b8a9e);
+            background: linear-gradient(135deg, #0f4c5f, #1f8a9e);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            letter-spacing: -0.5px;
         }
         .tagline {
-            font-size: 0.75rem;
-            color: #5b7f8c;
-            background: #eef3fa;
-            padding: 2px 10px;
+            font-size: 0.85rem;
+            color: #2c6e8a;
+            background: #e3f0f5;
+            padding: 4px 14px;
             border-radius: 40px;
+            font-weight: 500;
         }
         .telegram-btn {
-            background: #0088cc;
-            padding: 8px 22px;
-            border-radius: 40px;
-            transition: 0.2s;
+            background: linear-gradient(135deg, #0088cc, #006699);
+            padding: 10px 28px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,136,204,0.3);
         }
         .telegram-btn a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
-        /* ট্যাব বাটন */
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,136,204,0.4);
+        }
+        /* বড় ট্যাব বাটন - একই লাইনে (স্ক্রলযোগ্য) */
         .tab-buttons {
             display: flex;
             flex-wrap: nowrap;
             justify-content: center;
-            gap: 12px;
-            margin: 20px 0 30px;
+            gap: 18px;
+            margin: 25px 0 35px;
             overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: thin;
         }
         .tab-btn {
             background: white;
-            border: 1px solid #cbdde9;
-            font-weight: 600;
-            font-size: 0.8rem;
-            padding: 6px 18px;
-            border-radius: 40px;
+            border: 2px solid #cde0ea;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 28px;
+            border-radius: 60px;
             cursor: pointer;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
             color: #1e5a7a;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .tab-btn i {
+            font-size: 1.1rem;
         }
         .tab-btn.active {
             background: #1f6e8c;
             color: white;
             border-color: #1f6e8c;
+            box-shadow: 0 6px 14px rgba(31,110,140,0.3);
+            transform: scale(1.02);
+        }
+        .tab-btn:hover:not(.active) {
+            background: #eef3fc;
+            border-color: #1f6e8c;
+            transform: translateY(-2px);
         }
         /* স্লাইডার */
         .fb-cover-slider {
-            margin: 10px 0 40px;
-            border-radius: 28px;
+            margin: 10px 0 45px;
+            border-radius: 32px;
             overflow: hidden;
             aspect-ratio: 16 / 9;
             position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         .slide {
             position: absolute;
@@ -119,158 +140,287 @@
         /* ট্যাব কন্টেন্ট */
         .tab-content-area {
             background: white;
-            border-radius: 32px;
-            padding: 28px 24px;
-            margin-bottom: 50px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            border-radius: 36px;
+            padding: 32px 28px;
+            margin-bottom: 55px;
+            box-shadow: 0 18px 35px rgba(0,0,0,0.06);
         }
         .tab-pane { display: none; animation: fadeIn 0.3s ease; }
         .tab-pane.active-pane { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
         /* কার্ড গ্রিড */
         .card-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 28px;
-            margin-top: 25px;
+            gap: 32px;
+            margin-top: 30px;
         }
         .course-card, .ebook-card, .success-card, .review-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
-            flex: 1 1 270px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-            border: 1px solid #eef3fc;
+            flex: 1 1 290px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.07);
+            border: 1px solid #eaf3fa;
         }
+        .course-card:hover, .ebook-card:hover { transform: translateY(-8px); box-shadow: 0 22px 35px rgba(0,0,0,0.12); }
         .course-img, .student-img {
             width: 100%;
-            height: 170px;
+            height: 180px;
             object-fit: cover;
         }
         .course-info, .card-info {
-            padding: 18px 16px 22px;
+            padding: 20px 18px 24px;
+        }
+        .course-info h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
         }
         .course-price {
             font-weight: 800;
             color: #e67e22;
-            font-size: 1.2rem;
-            margin: 8px 0;
+            font-size: 1.3rem;
+            margin: 10px 0;
         }
         .button-group {
             display: flex;
-            gap: 12px;
-            margin-top: 16px;
+            gap: 14px;
+            margin-top: 18px;
         }
         .btn-enroll, .btn-details {
-            padding: 8px 18px;
-            border-radius: 40px;
+            padding: 10px 22px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             border: none;
             cursor: pointer;
+            transition: 0.2s;
         }
-        .btn-enroll { background: #1f6e8c; color: white; }
-        .btn-details { background: #f0f4fa; color: #1f6e8c; border: 1px solid #cbdde9; }
+        .btn-enroll {
+            background: #1f6e8c;
+            color: white;
+        }
+        .btn-enroll:hover { background: #0e5a75; transform: scale(1.02); }
+        .btn-details {
+            background: #f0f4fa;
+            color: #1f6e8c;
+            border: 1px solid #cbdde9;
+        }
         .search-ebook {
             display: flex;
-            gap: 12px;
-            margin-bottom: 28px;
+            gap: 15px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
         }
         .search-ebook input {
             flex: 1;
-            padding: 10px 20px;
+            padding: 14px 24px;
             border-radius: 60px;
             border: 1px solid #cbdde9;
+            font-size: 1rem;
         }
         .search-ebook button {
             background: #1f6e8c;
             border: none;
-            padding: 10px 28px;
+            padding: 14px 32px;
             border-radius: 60px;
             color: white;
+            font-weight: 700;
             cursor: pointer;
         }
         .whatsapp-buy {
             background: #25D366;
             color: white;
             border: none;
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 12px;
+            margin-top: 14px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
+        /* ডিটেইল পেজ */
         .detail-page-container {
-            max-width: 1100px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 25px auto;
             background: white;
-            border-radius: 32px;
+            border-radius: 40px;
+            overflow: hidden;
             display: none;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
         .detail-page-container.active-detail { display: block; }
         .detail-cover {
             width: 100%;
-            height: 320px;
+            height: 360px;
             object-fit: cover;
         }
-        .detail-content { padding: 32px 36px; }
+        .detail-content { padding: 38px 42px; }
         .detail-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            border-left: 5px solid #1f6e8c;
-            padding-left: 20px;
-            margin-bottom: 20px;
+            border-left: 6px solid #1f6e8c;
+            padding-left: 24px;
+            margin-bottom: 28px;
         }
         .detail-features {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+            gap: 18px;
             background: #f8fafd;
-            padding: 20px;
-            border-radius: 24px;
-            margin: 24px 0;
+            padding: 24px;
+            border-radius: 28px;
+            margin: 28px 0;
         }
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            font-size: 1rem;
         }
         .back-button {
             background: #eef2fa;
             border: none;
-            padding: 10px 26px;
-            border-radius: 40px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
             cursor: pointer;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            font-size: 0.9rem;
         }
         .whatsapp-btn-large {
             background: #25D366;
             color: white;
-            padding: 14px 30px;
+            padding: 16px 36px;
             border-radius: 60px;
             text-decoration: none;
+            font-weight: 800;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 14px;
+            font-size: 1.1rem;
+            margin-top: 25px;
         }
+        /* ========= উন্নত ফুটার ========= */
         .footer {
             background: #0a2b38;
             color: #e0f0f5;
-            border-radius: 32px 32px 0 0;
-            margin-top: 60px;
-            padding: 44px 24px 30px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 70px;
+            padding: 55px 28px 35px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto 40px;
+        }
+        .footer-col {
+            flex: 1 1 230px;
+        }
+        .footer-col h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffdc97;
+            position: relative;
+            display: inline-block;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background: #ffb347;
+            border-radius: 3px;
+        }
+        .footer-col p, .footer-col a {
+            color: #c7e2ed;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            transition: 0.2s;
+        }
+        .footer-col a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 18px;
+        }
+        .social-icons a {
+            background: #1f5065;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s;
+        }
+        .social-icons a i {
+            font-size: 1.3rem;
+        }
+        .social-icons a:hover {
+            background: #ffb347;
+            transform: translateY(-5px);
+        }
+        .newsletter-box {
+            display: flex;
+            gap: 10px;
+            background: #1f5065;
+            border-radius: 60px;
+            padding: 5px;
+            margin-top: 12px;
+        }
+        .newsletter-box input {
+            background: none;
+            border: none;
+            padding: 12px 16px;
+            color: white;
+            outline: none;
+            flex: 1;
+            font-family: inherit;
+        }
+        .newsletter-box button {
+            background: #ffb347;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .footer-bottom {
             text-align: center;
+            border-top: 1px solid #2b576b;
+            padding-top: 30px;
+            margin-top: 15px;
+            font-size: 0.8rem;
         }
-        @media (max-width: 700px) {
-            .detail-content { padding: 20px; }
-            .tab-btn { padding: 5px 14px; font-size: 0.7rem; }
+        @media (max-width: 750px) {
+            .tab-btn { padding: 10px 20px; font-size: 0.85rem; }
+            .detail-content { padding: 22px; }
+            .detail-title { font-size: 1.6rem; }
+            .footer-grid { flex-direction: column; text-align: center; align-items: center; }
+            .social-icons { justify-content: center; }
+            .footer-col h4:after { left: 50%; transform: translateX(-50%); }
         }
-        .loading { text-align: center; padding: 40px; font-size: 1.2rem; }
+        .loading { text-align: center; padding: 50px; font-size: 1.2rem; color: #1f6e8c; }
     </style>
 </head>
 <body>
@@ -279,10 +429,10 @@
     <div class="header">
         <div class="brand-area">
             <div class="site-title"><h1>📘 SSPathshala</h1></div>
-            <div class="tagline"><i class="fas fa-brain"></i> শিখুন, বেড়ে উঠুন, সফল হন</div>
+            <div class="tagline"><i class="fas fa-rocket"></i> জ্ঞান-উন্নয়ন-সাফল্য</div>
         </div>
         <div class="telegram-btn">
-            <a href="https://t.me/joinchat/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i> জয়েন</a>
+            <a href="https://t.me/joinchat/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i> কমিউনিটি জয়েন</a>
         </div>
     </div>
 
@@ -293,44 +443,88 @@
         <img class="slide" src="https://picsum.photos/id/30/1280/720" alt="সাফল্য">
     </div>
 
-    <!-- ট্যাব বাটন -->
+    <!-- বড় ট্যাব বাটন (এক লাইনে) -->
     <div class="tab-buttons">
-        <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্স</button>
-        <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক</button>
-        <button class="tab-btn" data-tab="successTab"><i class="fas fa-trophy"></i> সাফল্য</button>
-        <button class="tab-btn" data-tab="reviewTab"><i class="fas fa-star"></i> রিভিউ</button>
+        <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্সসমূহ</button>
+        <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক লাইব্রেরি</button>
+        <button class="tab-btn" data-tab="successTab"><i class="fas fa-trophy"></i> সাফল্যের গল্প</button>
+        <button class="tab-btn" data-tab="reviewTab"><i class="fas fa-star"></i> শিক্ষার্থী রিভিউ</button>
     </div>
 
     <div class="tab-content-area">
-        <div id="coursesTab" class="tab-pane active-pane"><div class="loading">লোড হচ্ছে...</div></div>
-        <div id="ebooksTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
-        <div id="successTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
-        <div id="reviewTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
+        <div id="coursesTab" class="tab-pane active-pane"><div class="loading"><i class="fas fa-spinner fa-pulse"></i> কোর্স লোড হচ্ছে...</div></div>
+        <div id="ebooksTab" class="tab-pane"><div class="loading"><i class="fas fa-spinner fa-pulse"></i> ই-বুক লোড হচ্ছে...</div></div>
+        <div id="successTab" class="tab-pane"><div class="loading"><i class="fas fa-spinner fa-pulse"></i> সাফল্যের গল্প আনা হচ্ছে...</div></div>
+        <div id="reviewTab" class="tab-pane"><div class="loading"><i class="fas fa-spinner fa-pulse"></i> রিভিউ সংগ্রহ করা হচ্ছে...</div></div>
     </div>
 </div>
 
-<!-- ডিটেইল পেজ কন্টেইনার -->
+<!-- ডিটেইল পেজ -->
 <div id="detailPage" class="detail-page-container">
     <div class="detail-header"><img id="detailCover" class="detail-cover"></div>
     <div class="detail-content">
-        <button class="back-button" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> পেছনে যান</button>
+        <button class="back-button" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> সব কোর্সে ফিরুন</button>
         <h1 id="detailTitle" class="detail-title"></h1>
         <div id="detailFeatures" class="detail-features"></div>
-        <div id="detailMentor" class="mentor-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
-        <div id="detailConduct" class="conduct-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
-        <div id="detailExtra" class="extra-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
+        <div id="detailMentor" class="mentor-box" style="background:#f8fafd; padding:18px 22px; border-radius:24px; margin:18px 0;"></div>
+        <div id="detailConduct" class="conduct-box" style="background:#f8fafd; padding:18px 22px; border-radius:24px; margin:18px 0;"></div>
+        <div id="detailExtra" class="extra-box" style="background:#f8fafd; padding:18px 22px; border-radius:24px; margin:18px 0;"></div>
         <div id="detailPrice" class="price-large"></div>
-        <a id="detailWhatsappLink" href="#" target="_blank" class="whatsapp-btn-large"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে ভর্তি হতে চাই</a>
+        <a id="detailWhatsappLink" href="#" target="_blank" class="whatsapp-btn-large"><i class="fab fa-whatsapp"></i> সরাসরি হোয়াটসঅ্যাপে ভর্তি</a>
     </div>
 </div>
 
-<div class="footer"><div class="container"><p><i class="far fa-copyright"></i> ২০২৬ SSPathshala — মডুলার JSON ভিত্তিক প্ল্যাটফর্ম</p></div></div>
+<!-- আপগ্রেড ফুটার -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>📘 SSPathshala</h4>
+                <p><i class="fas fa-map-marker-alt"></i> ঢাকা, বাংলাদেশ</p>
+                <p><i class="fas fa-envelope"></i> hello@sspathshala.com</p>
+                <p><i class="fas fa-phone-alt"></i> +880 1823 456789</p>
+                <p><i class="fas fa-globe"></i> www.sspathshala.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>কুইক লিংক</h4>
+                <p><i class="fas fa-angle-right"></i> সকল কোর্স</p>
+                <p><i class="fas fa-angle-right"></i> ফ্রি ই-বুক</p>
+                <p><i class="fas fa-angle-right"></i> সাফল্যের গল্প</p>
+                <p><i class="fas fa-angle-right"></i> ব্লগ ও টিউটোরিয়াল</p>
+                <p><i class="fas fa-angle-right"></i> যোগাযোগ করুন</p>
+            </div>
+            <div class="footer-col">
+                <h4>কমিউনিটি</h4>
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://t.me/joinchat/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p style="margin-top: 25px;"><i class="fas fa-clock"></i> সাপোর্ট সময়: রাত ৮টা - ১১টা (বাংলাদেশ)</p>
+                <p><i class="fas fa-headset"></i> ২৪/৭ টেলিগ্রাম সাপোর্ট</p>
+            </div>
+            <div class="footer-col">
+                <h4>নিউজলেটার</h4>
+                <p>আপডেট ও ফ্রি রিসোর্স পেতে সাবস্ক্রাইব করুন</p>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="আপনার ইমেইল এড্রেস">
+                    <button><i class="fas fa-paper-plane"></i> জয়েন</button>
+                </div>
+                <p style="margin-top: 20px;"><i class="fas fa-shield-alt"></i> স্প্যাম ফ্রি, শুধু শিক্ষামূলক কন্টেন্ট</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><i class="far fa-copyright"></i> ২০২৬ SSPathshala — সমস্ত অধিকার সংরক্ষিত | জ্ঞান ছড়িয়ে দিতে আমরা প্রতিশ্রুতিবদ্ধ</p>
+            <p style="margin-top: 12px; font-size:0.75rem;">পাওয়ার্ড বাই মডুলার JSON আর্কিটেকচার | ডিজাইন & ডেভেলপমেন্ট: SSPathshala টিম</p>
+        </div>
+    </div>
+</div>
 
 <script>
-    // গ্লোবাল ভেরিয়েবল
     let coursesData = [], ebooksData = [], successData = [], reviewsData = [];
 
-    // ফেচ ফাংশন
     async function loadJSON(url) {
         try {
             const res = await fetch(url);
@@ -342,7 +536,6 @@
         }
     }
 
-    // সমস্ত ডেটা লোড
     async function loadAllData() {
         [coursesData, ebooksData, successData, reviewsData] = await Promise.all([
             loadJSON('courses.json'),
@@ -356,12 +549,11 @@
         renderReviews();
     }
 
-    // কোর্স রেন্ডার
     function renderCourses() {
         const container = document.getElementById('coursesTab');
-        if (!coursesData.length) { container.innerHTML = '<p>কোনো কোর্স ডেটা নেই</p>'; return; }
+        if (!coursesData.length) { container.innerHTML = '<p class="loading">কোর্স ডেটা পাওয়া যায়নি</p>'; return; }
         container.innerHTML = `
-            <h2><i class="fas fa-chalkboard-user"></i> প্রফেশনাল কোর্স</h2>
+            <h2><i class="fas fa-chalkboard-user"></i> পেশাদার কোর্স সমূহ</h2>
             <div class="card-grid" id="coursesContainer"></div>
         `;
         const grid = document.getElementById('coursesContainer');
@@ -370,7 +562,7 @@
                 <img class="course-img" src="${c.img}" alt="${c.title}">
                 <div class="course-info">
                     <h3>${c.title}</h3>
-                    <div class="course-price">${c.price} <span style="font-size:0.8rem; text-decoration:line-through;">${c.originalPrice || ''}</span></div>
+                    <div class="course-price">${c.price} <span style="font-size:0.9rem; text-decoration:line-through;">${c.originalPrice || ''}</span></div>
                     <div class="button-group">
                         <button class="btn-enroll" data-id="${c.id}"><i class="fas fa-check-circle"></i> এনরোল</button>
                         <button class="btn-details" data-id="${c.id}"><i class="fas fa-info-circle"></i> বিস্তারিত</button>
@@ -383,7 +575,7 @@
 
     function attachCourseEvents() {
         document.querySelectorAll('#coursesContainer .btn-enroll').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', () => {
                 const id = parseInt(btn.dataset.id);
                 const course = coursesData.find(c => c.id === id);
                 window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`হ্যালো, আমি "${course.title}" কোর্সে এনরোল করতে আগ্রহী।`)}`, '_blank');
@@ -406,10 +598,10 @@
         document.getElementById('detailCover').src = course.img;
         document.getElementById('detailTitle').innerText = course.title;
         document.getElementById('detailFeatures').innerHTML = course.features.map(f => `<div class="feature-item"><i class="fas fa-check-circle"></i> ${f}</div>`).join('');
-        document.getElementById('detailMentor').innerHTML = `<i class="fas fa-user-tie"></i> <strong>মেন্টর:</strong> ${course.mentor || 'আমাদের এক্সপার্ট টিম'}`;
-        document.getElementById('detailConduct').innerHTML = `<i class="fas fa-chalkboard-teacher"></i> <strong>কিভাবে পরিচালনা হবে:</strong><br> ${course.conduction || 'লাইভ ক্লাস, রেকর্ডেড ভিডিও ও সাপোর্ট'}`;
-        document.getElementById('detailExtra').innerHTML = `<i class="fas fa-gift"></i> <strong>অতিরিক্ত সুবিধা:</strong><br> ${course.extra || 'ক্যারিয়ার গাইডলাইন ও সার্টিফিকেট'}`;
-        document.getElementById('detailPrice').innerHTML = `মূল্য: ${course.price} ${course.originalPrice ? `<span style="font-size:1rem; text-decoration:line-through; margin-left:10px;">${course.originalPrice}</span>` : ''}`;
+        document.getElementById('detailMentor').innerHTML = `<i class="fas fa-user-tie"></i> <strong>মেন্টর:</strong> ${course.mentor || 'এক্সপার্ট টিম'}`;
+        document.getElementById('detailConduct').innerHTML = `<i class="fas fa-chalkboard-teacher"></i> <strong>কিভাবে পরিচালনা হবে:</strong><br> ${course.conduction || 'লাইভ ও রেকর্ডেড ক্লাস, সাপোর্ট গ্রুপ'}`;
+        document.getElementById('detailExtra').innerHTML = `<i class="fas fa-gift"></i> <strong>অতিরিক্ত সুবিধা:</strong><br> ${course.extra || 'সার্টিফিকেট ও ক্যারিয়ার গাইড'}`;
+        document.getElementById('detailPrice').innerHTML = `মূল্য: ${course.price} ${course.originalPrice ? `<span style="font-size:1rem; text-decoration:line-through; margin-left:12px;">${course.originalPrice}</span>` : ''}`;
         const waMsg = encodeURIComponent(`আমি "${course.title}" কোর্সের বিস্তারিত দেখে ভর্তি হতে চাই।`);
         document.getElementById('detailWhatsappLink').href = `https://wa.me/8801700000000?text=${waMsg}`;
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -422,7 +614,6 @@
         document.querySelector('.tab-buttons').style.display = 'flex';
     }
 
-    // ই-বুক রেন্ডার (সার্চ ফাংশনসহ)
     function renderEbooks(filter = '') {
         const container = document.getElementById('ebooksTab');
         const filtered = ebooksData.filter(b => b.title.toLowerCase().includes(filter.toLowerCase()));
@@ -440,50 +631,51 @@
             <div class="ebook-card">
                 <img class="student-img" src="${book.img}">
                 <div class="card-info">
-                    <span style="background:#e0f2fe; padding:4px 12px; border-radius:40px; font-size:0.7rem;">${book.type === 'free' ? '📘 ফ্রি' : '💎 প্রিমিয়াম'}</span>
+                    <span style="background:#e0f2fe; padding:4px 14px; border-radius:40px; font-size:0.75rem; font-weight:600;">${book.type === 'free' ? '📘 ফ্রি' : '💎 প্রিমিয়াম'}</span>
                     <h3>${book.title}</h3>
                     <p>${book.desc}</p>
-                    ${book.type === 'free' ? `<button class="download-free" style="background:#eef2fa; border:none; padding:6px 18px; border-radius:30px; margin-top:8px;">ডাউনলোড লিংক</button>` : `<button class="whatsapp-buy buy-paid" data-title="${book.title}" data-price="${book.price}"><i class="fab fa-whatsapp"></i> কিনুন</button>`}
+                    ${book.type === 'free' ? `<button class="download-free" style="background:#eef2fa; border:none; padding:8px 20px; border-radius:40px; margin-top:10px; font-weight:600;">ডাউনলোড লিংক</button>` : `<button class="whatsapp-buy buy-paid" data-title="${book.title}" data-price="${book.price}"><i class="fab fa-whatsapp"></i> কিনুন</button>`}
                 </div>
             </div>
         `).join('');
         document.querySelectorAll('.download-free').forEach(btn => btn.addEventListener('click', () => toastMsg("📖 ফ্রি ই-বুক লিংক পেতে টেলিগ্রাম চ্যানেল জয়েন করুন।")));
         document.querySelectorAll('.buy-paid').forEach(btn => btn.addEventListener('click', () => { const title = btn.dataset.title; const price = btn.dataset.price; window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`আমি "${title}" ই-বুকটি কিনতে চাই, মূল্য: ${price}।`)}`, '_blank'); }));
-        document.getElementById('ebookSearch').addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
-        document.getElementById('searchEbookBtn').addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
+        document.getElementById('ebookSearch')?.addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
+        document.getElementById('searchEbookBtn')?.addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
     }
 
     function renderSuccess() {
         const container = document.getElementById('successTab');
         container.innerHTML = `<h2><i class="fas fa-medal"></i> সাফল্য — চান্সপ্রাপ্ত শিক্ষার্থী</h2><div class="card-grid" id="successContainer"></div>`;
         const grid = document.getElementById('successContainer');
-        grid.innerHTML = successData.map(s => `<div class="success-card"><img class="student-img" src="${s.img}"><div class="card-info"><h3>${s.name}</h3><p><i class="fas fa-trophy"></i> <strong>${s.achievement}</strong></p><p>${s.description}</p></div></div>`).join('');
+        grid.innerHTML = successData.map(s => `<div class="success-card"><img class="student-img" src="${s.img}"><div class="card-info"><h3>${s.name}</h3><p><i class="fas fa-trophy" style="color:#f5b342;"></i> <strong>${s.achievement}</strong></p><p>${s.description}</p></div></div>`).join('');
     }
 
     function renderReviews() {
         const container = document.getElementById('reviewTab');
         container.innerHTML = `<h2><i class="fas fa-comment-dots"></i> রিভিউ — সাফল্যের অনুপ্রেরণা</h2><div class="card-grid" id="reviewContainer"></div>`;
         const grid = document.getElementById('reviewContainer');
-        grid.innerHTML = reviewsData.map(r => `<div class="review-card"><img class="student-img" src="${r.img}"><div class="card-info"><h3>${r.name}</h3><p><i class="fas fa-quote-left"></i> ${r.story}</p></div></div>`).join('');
+        grid.innerHTML = reviewsData.map(r => `<div class="review-card"><img class="student-img" src="${r.img}"><div class="card-info"><h3>${r.name}</h3><p><i class="fas fa-quote-left" style="color:#1f6e8c;"></i> ${r.story}</p></div></div>`).join('');
     }
 
     function toastMsg(msg) {
         let t = document.createElement('div');
         t.innerText = msg;
         t.style.position = 'fixed';
-        t.style.bottom = '20px';
+        t.style.bottom = '25px';
         t.style.left = '50%';
         t.style.transform = 'translateX(-50%)';
         t.style.backgroundColor = '#0a2b38';
         t.style.color = 'white';
-        t.style.padding = '10px 24px';
+        t.style.padding = '12px 28px';
         t.style.borderRadius = '50px';
         t.style.zIndex = '9999';
+        t.style.fontWeight = '600';
         document.body.appendChild(t);
         setTimeout(() => t.remove(), 2500);
     }
 
-    // ট্যাব সিস্টেম
+    // ট্যাব অ্যাক্টিভেশন
     const tabs = document.querySelectorAll('.tab-btn');
     const panes = document.querySelectorAll('.tab-pane');
     function activateTab(tabId) {
@@ -497,9 +689,9 @@
     let slides = document.querySelectorAll('.slide'), currentSlide = 0;
     function showSlide(i) { slides.forEach((s, idx) => s.classList.toggle('active', idx === i)); }
     function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
-    let interval = setInterval(nextSlide, 4200);
-    const slider = document.querySelector('.fb-cover-slider');
-    if(slider) { slider.addEventListener('mouseenter', () => clearInterval(interval)); slider.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4200); }); }
+    let interval = setInterval(nextSlide, 4500);
+    const sliderDiv = document.querySelector('.fb-cover-slider');
+    if(sliderDiv) { sliderDiv.addEventListener('mouseenter', () => clearInterval(interval)); sliderDiv.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4500); }); }
 
     document.getElementById('backToHomeBtn').addEventListener('click', hideDetailAndShowMain);
     loadAllData();
