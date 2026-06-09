@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SSPathshala | মডুলার প্ল্যাটফর্ম</title>
+    <!-- Google Fonts: Anek Bangla -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Anek Bangla', sans-serif;
+            background: #f4f9fe;
+            color: #0a2b3e;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* হেডার */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 2px solid #e2edf2;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .brand-area {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .site-title h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f4c5f, #1b8a9e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .tagline {
+            font-size: 0.75rem;
+            color: #5b7f8c;
+            background: #eef3fa;
+            padding: 2px 10px;
+            border-radius: 40px;
+        }
+        .telegram-btn {
+            background: #0088cc;
+            padding: 8px 22px;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .telegram-btn a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        /* ট্যাব বাটন */
+        .tab-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 30px;
+            overflow-x: auto;
+        }
+        .tab-btn {
+            background: white;
+            border: 1px solid #cbdde9;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 6px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1e5a7a;
+        }
+        .tab-btn.active {
+            background: #1f6e8c;
+            color: white;
+            border-color: #1f6e8c;
+        }
+        /* স্লাইডার */
+        .fb-cover-slider {
+            margin: 10px 0 40px;
+            border-radius: 28px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .slide.active { opacity: 1; z-index: 1; }
+        /* ট্যাব কন্টেন্ট */
+        .tab-content-area {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 24px;
+            margin-bottom: 50px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+        .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+        .tab-pane.active-pane { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+        /* কার্ড গ্রিড */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 25px;
+        }
+        .course-card, .ebook-card, .success-card, .review-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            flex: 1 1 270px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+            border: 1px solid #eef3fc;
+        }
+        .course-img, .student-img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+        .course-info, .card-info {
+            padding: 18px 16px 22px;
+        }
+        .course-price {
+            font-weight: 800;
+            color: #e67e22;
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .btn-enroll, .btn-details {
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-enroll { background: #1f6e8c; color: white; }
+        .btn-details { background: #f0f4fa; color: #1f6e8c; border: 1px solid #cbdde9; }
+        .search-ebook {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .search-ebook input {
+            flex: 1;
+            padding: 10px 20px;
+            border-radius: 60px;
+            border: 1px solid #cbdde9;
+        }
+        .search-ebook button {
+            background: #1f6e8c;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+        }
+        .whatsapp-buy {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .detail-page-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 32px;
+            display: none;
+        }
+        .detail-page-container.active-detail { display: block; }
+        .detail-cover {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .detail-content { padding: 32px 36px; }
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 800;
+            border-left: 5px solid #1f6e8c;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .detail-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+            gap: 16px;
+            background: #f8fafd;
+            padding: 20px;
+            border-radius: 24px;
+            margin: 24px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .back-button {
+            background: #eef2fa;
+            border: none;
+            padding: 10px 26px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-bottom: 24px;
+        }
+        .whatsapp-btn-large {
+            background: #25D366;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .footer {
+            background: #0a2b38;
+            color: #e0f0f5;
+            border-radius: 32px 32px 0 0;
+            margin-top: 60px;
+            padding: 44px 24px 30px;
+            text-align: center;
+        }
+        @media (max-width: 700px) {
+            .detail-content { padding: 20px; }
+            .tab-btn { padding: 5px 14px; font-size: 0.7rem; }
+        }
+        .loading { text-align: center; padding: 40px; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="brand-area">
+            <div class="site-title"><h1>📘 SSPathshala</h1></div>
+            <div class="tagline"><i class="fas fa-brain"></i> শিখুন, বেড়ে উঠুন, সফল হন</div>
+        </div>
+        <div class="telegram-btn">
+            <a href="https://t.me/joinchat/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i> জয়েন</a>
+        </div>
+    </div>
+
+    <!-- স্লাইডার -->
+    <div class="fb-cover-slider">
+        <img class="slide active" src="https://picsum.photos/id/42/1280/720" alt="শিক্ষা">
+        <img class="slide" src="https://picsum.photos/id/26/1280/720" alt="ক্লাস">
+        <img class="slide" src="https://picsum.photos/id/30/1280/720" alt="সাফল্য">
+    </div>
+
+    <!-- ট্যাব বাটন -->
+    <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্স</button>
+        <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক</button>
+        <button class="tab-btn" data-tab="successTab"><i class="fas fa-trophy"></i> সাফল্য</button>
+        <button class="tab-btn" data-tab="reviewTab"><i class="fas fa-star"></i> রিভিউ</button>
+    </div>
+
+    <div class="tab-content-area">
+        <div id="coursesTab" class="tab-pane active-pane"><div class="loading">লোড হচ্ছে...</div></div>
+        <div id="ebooksTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
+        <div id="successTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
+        <div id="reviewTab" class="tab-pane"><div class="loading">লোড হচ্ছে...</div></div>
+    </div>
+</div>
+
+<!-- ডিটেইল পেজ কন্টেইনার -->
+<div id="detailPage" class="detail-page-container">
+    <div class="detail-header"><img id="detailCover" class="detail-cover"></div>
+    <div class="detail-content">
+        <button class="back-button" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> পেছনে যান</button>
+        <h1 id="detailTitle" class="detail-title"></h1>
+        <div id="detailFeatures" class="detail-features"></div>
+        <div id="detailMentor" class="mentor-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
+        <div id="detailConduct" class="conduct-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
+        <div id="detailExtra" class="extra-box" style="background:#f8fafd; padding:16px; border-radius:20px; margin:16px 0;"></div>
+        <div id="detailPrice" class="price-large"></div>
+        <a id="detailWhatsappLink" href="#" target="_blank" class="whatsapp-btn-large"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে ভর্তি হতে চাই</a>
+    </div>
+</div>
+
+<div class="footer"><div class="container"><p><i class="far fa-copyright"></i> ২০২৬ SSPathshala — মডুলার JSON ভিত্তিক প্ল্যাটফর্ম</p></div></div>
+
+<script>
+    // গ্লোবাল ভেরিয়েবল
+    let coursesData = [], ebooksData = [], successData = [], reviewsData = [];
+
+    // ফেচ ফাংশন
+    async function loadJSON(url) {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return await res.json();
+        } catch (err) {
+            console.error(`Error loading ${url}:`, err);
+            return [];
+        }
+    }
+
+    // সমস্ত ডেটা লোড
+    async function loadAllData() {
+        [coursesData, ebooksData, successData, reviewsData] = await Promise.all([
+            loadJSON('courses.json'),
+            loadJSON('ebooks.json'),
+            loadJSON('success.json'),
+            loadJSON('reviews.json')
+        ]);
+        renderCourses();
+        renderEbooks();
+        renderSuccess();
+        renderReviews();
+    }
+
+    // কোর্স রেন্ডার
+    function renderCourses() {
+        const container = document.getElementById('coursesTab');
+        if (!coursesData.length) { container.innerHTML = '<p>কোনো কোর্স ডেটা নেই</p>'; return; }
+        container.innerHTML = `
+            <h2><i class="fas fa-chalkboard-user"></i> প্রফেশনাল কোর্স</h2>
+            <div class="card-grid" id="coursesContainer"></div>
+        `;
+        const grid = document.getElementById('coursesContainer');
+        grid.innerHTML = coursesData.map(c => `
+            <div class="course-card">
+                <img class="course-img" src="${c.img}" alt="${c.title}">
+                <div class="course-info">
+                    <h3>${c.title}</h3>
+                    <div class="course-price">${c.price} <span style="font-size:0.8rem; text-decoration:line-through;">${c.originalPrice || ''}</span></div>
+                    <div class="button-group">
+                        <button class="btn-enroll" data-id="${c.id}"><i class="fas fa-check-circle"></i> এনরোল</button>
+                        <button class="btn-details" data-id="${c.id}"><i class="fas fa-info-circle"></i> বিস্তারিত</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        attachCourseEvents();
+    }
+
+    function attachCourseEvents() {
+        document.querySelectorAll('#coursesContainer .btn-enroll').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id);
+                const course = coursesData.find(c => c.id === id);
+                window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`হ্যালো, আমি "${course.title}" কোর্সে এনরোল করতে আগ্রহী।`)}`, '_blank');
+            });
+        });
+        document.querySelectorAll('#coursesContainer .btn-details').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = parseInt(btn.dataset.id);
+                const course = coursesData.find(c => c.id === id);
+                showDetailPage(course);
+            });
+        });
+    }
+
+    function showDetailPage(course) {
+        document.querySelector('.tab-content-area').style.display = 'none';
+        document.querySelector('.fb-cover-slider').style.display = 'none';
+        document.querySelector('.tab-buttons').style.display = 'none';
+        document.getElementById('detailPage').classList.add('active-detail');
+        document.getElementById('detailCover').src = course.img;
+        document.getElementById('detailTitle').innerText = course.title;
+        document.getElementById('detailFeatures').innerHTML = course.features.map(f => `<div class="feature-item"><i class="fas fa-check-circle"></i> ${f}</div>`).join('');
+        document.getElementById('detailMentor').innerHTML = `<i class="fas fa-user-tie"></i> <strong>মেন্টর:</strong> ${course.mentor || 'আমাদের এক্সপার্ট টিম'}`;
+        document.getElementById('detailConduct').innerHTML = `<i class="fas fa-chalkboard-teacher"></i> <strong>কিভাবে পরিচালনা হবে:</strong><br> ${course.conduction || 'লাইভ ক্লাস, রেকর্ডেড ভিডিও ও সাপোর্ট'}`;
+        document.getElementById('detailExtra').innerHTML = `<i class="fas fa-gift"></i> <strong>অতিরিক্ত সুবিধা:</strong><br> ${course.extra || 'ক্যারিয়ার গাইডলাইন ও সার্টিফিকেট'}`;
+        document.getElementById('detailPrice').innerHTML = `মূল্য: ${course.price} ${course.originalPrice ? `<span style="font-size:1rem; text-decoration:line-through; margin-left:10px;">${course.originalPrice}</span>` : ''}`;
+        const waMsg = encodeURIComponent(`আমি "${course.title}" কোর্সের বিস্তারিত দেখে ভর্তি হতে চাই।`);
+        document.getElementById('detailWhatsappLink').href = `https://wa.me/8801700000000?text=${waMsg}`;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hideDetailAndShowMain() {
+        document.getElementById('detailPage').classList.remove('active-detail');
+        document.querySelector('.tab-content-area').style.display = 'block';
+        document.querySelector('.fb-cover-slider').style.display = 'block';
+        document.querySelector('.tab-buttons').style.display = 'flex';
+    }
+
+    // ই-বুক রেন্ডার (সার্চ ফাংশনসহ)
+    function renderEbooks(filter = '') {
+        const container = document.getElementById('ebooksTab');
+        const filtered = ebooksData.filter(b => b.title.toLowerCase().includes(filter.toLowerCase()));
+        container.innerHTML = `
+            <h2><i class="fas fa-download"></i> ডিজিটাল ই-বুক কালেকশন</h2>
+            <div class="search-ebook">
+                <input type="text" id="ebookSearch" placeholder="🔍 ই-বুক সার্চ করুন...">
+                <button id="searchEbookBtn"><i class="fas fa-search"></i> খুঁজুন</button>
+            </div>
+            <div class="card-grid" id="ebooksContainer"></div>
+        `;
+        const grid = document.getElementById('ebooksContainer');
+        if (!filtered.length) { grid.innerHTML = '<p style="text-align:center;">🔍 কোনো ই-বুক খুঁজে পাওয়া যায়নি</p>'; return; }
+        grid.innerHTML = filtered.map(book => `
+            <div class="ebook-card">
+                <img class="student-img" src="${book.img}">
+                <div class="card-info">
+                    <span style="background:#e0f2fe; padding:4px 12px; border-radius:40px; font-size:0.7rem;">${book.type === 'free' ? '📘 ফ্রি' : '💎 প্রিমিয়াম'}</span>
+                    <h3>${book.title}</h3>
+                    <p>${book.desc}</p>
+                    ${book.type === 'free' ? `<button class="download-free" style="background:#eef2fa; border:none; padding:6px 18px; border-radius:30px; margin-top:8px;">ডাউনলোড লিংক</button>` : `<button class="whatsapp-buy buy-paid" data-title="${book.title}" data-price="${book.price}"><i class="fab fa-whatsapp"></i> কিনুন</button>`}
+                </div>
+            </div>
+        `).join('');
+        document.querySelectorAll('.download-free').forEach(btn => btn.addEventListener('click', () => toastMsg("📖 ফ্রি ই-বুক লিংক পেতে টেলিগ্রাম চ্যানেল জয়েন করুন।")));
+        document.querySelectorAll('.buy-paid').forEach(btn => btn.addEventListener('click', () => { const title = btn.dataset.title; const price = btn.dataset.price; window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`আমি "${title}" ই-বুকটি কিনতে চাই, মূল্য: ${price}।`)}`, '_blank'); }));
+        document.getElementById('ebookSearch').addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
+        document.getElementById('searchEbookBtn').addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
+    }
+
+    function renderSuccess() {
+        const container = document.getElementById('successTab');
+        container.innerHTML = `<h2><i class="fas fa-medal"></i> সাফল্য — চান্সপ্রাপ্ত শিক্ষার্থী</h2><div class="card-grid" id="successContainer"></div>`;
+        const grid = document.getElementById('successContainer');
+        grid.innerHTML = successData.map(s => `<div class="success-card"><img class="student-img" src="${s.img}"><div class="card-info"><h3>${s.name}</h3><p><i class="fas fa-trophy"></i> <strong>${s.achievement}</strong></p><p>${s.description}</p></div></div>`).join('');
+    }
+
+    function renderReviews() {
+        const container = document.getElementById('reviewTab');
+        container.innerHTML = `<h2><i class="fas fa-comment-dots"></i> রিভিউ — সাফল্যের অনুপ্রেরণা</h2><div class="card-grid" id="reviewContainer"></div>`;
+        const grid = document.getElementById('reviewContainer');
+        grid.innerHTML = reviewsData.map(r => `<div class="review-card"><img class="student-img" src="${r.img}"><div class="card-info"><h3>${r.name}</h3><p><i class="fas fa-quote-left"></i> ${r.story}</p></div></div>`).join('');
+    }
+
+    function toastMsg(msg) {
+        let t = document.createElement('div');
+        t.innerText = msg;
+        t.style.position = 'fixed';
+        t.style.bottom = '20px';
+        t.style.left = '50%';
+        t.style.transform = 'translateX(-50%)';
+        t.style.backgroundColor = '#0a2b38';
+        t.style.color = 'white';
+        t.style.padding = '10px 24px';
+        t.style.borderRadius = '50px';
+        t.style.zIndex = '9999';
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 2500);
+    }
+
+    // ট্যাব সিস্টেম
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panes = document.querySelectorAll('.tab-pane');
+    function activateTab(tabId) {
+        panes.forEach(p => p.classList.remove('active-pane'));
+        document.getElementById(tabId).classList.add('active-pane');
+        tabs.forEach(btn => { if(btn.dataset.tab === tabId) btn.classList.add('active'); else btn.classList.remove('active'); });
+    }
+    tabs.forEach(btn => btn.addEventListener('click', () => { if(document.getElementById('detailPage').classList.contains('active-detail')) return; activateTab(btn.dataset.tab); }));
+
+    // স্লাইডার
+    let slides = document.querySelectorAll('.slide'), currentSlide = 0;
+    function showSlide(i) { slides.forEach((s, idx) => s.classList.toggle('active', idx === i)); }
+    function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
+    let interval = setInterval(nextSlide, 4200);
+    const slider = document.querySelector('.fb-cover-slider');
+    if(slider) { slider.addEventListener('mouseenter', () => clearInterval(interval)); slider.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4200); }); }
+
+    document.getElementById('backToHomeBtn').addEventListener('click', hideDetailAndShowMain);
+    loadAllData();
+</script>
+</body>
+</html>
