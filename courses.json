@@ -1,20 +1,74 @@
 [
     {
         "id": 1,
-        "img": "https://picsum.photos/id/10/800/400",
-        "title": "HSC 26 | Final Push & A+ Mission",
-        "price": "১৫০ টাকা",
-        "originalPrice": "প্রযোজ্য নয়",
+        "title": "অনুশীলনী মাস্টার কোর্স",
+        "description": "মেডিকেল ভর্তি পরীক্ষার প্রায় ৪০–৫০% MCQ অনুশীলনী থেকে আসে। এই সমস্যা সমাধানের জন্য SS PATHSHALA-র বিশেষ কোর্স।",
+        "price": "ফুল কোর্স: ২৩০ টাকা; সাবজেক্ট ওয়াইজ: ৯৯ টাকা করে",
+        "mentor": "সারা আপু",
         "features": [
-            "Daily Practice Sheet",
-            "Daily Exam",
-            "Homework Tracking",
-            "Subject-wise Suggestion",
-            "Short Note & Guideline",
-            "Full Support During HSC"
+            "সকল রাইটারের অনুশীলনীর সকল প্রশ্ন ও MCQ শিট",
+            "প্রতিটি MCQ এর ব্যাখ্যাসহ সমাধান",
+            "ভুল সংশোধনের সুযোগ ও মেরিট লিস্ট",
+            "১০ হাজার অনুশীলনী Poll",
+            "অনুশীলনী অ্যানালাইসিস নোট ও দাগানো বই",
+            "পৃষ্ঠাভিত্তিক ১ লাখ+ Poll"
         ],
-        "mentor": "@Sara_Apu",
-        "conduction": "সকাল ৮:০০ (Practice Sheet), সন্ধ্যা ৭:০০ (Homework Submission), রাত ৮:০০ (Daily Exam), রাত ১০:০০ (Doubt Solving & Mental Support)",
-        "extra": "Final Suggestion, Exclusive Practice Sheet, Short Note, Last Minute Guideline, Important Question Discussion, Exam Hall Strategy"
+        "payment_instruction": "বিকাশ/নগদ (সেন্ডমানি): 01648464699। পেমেন্ট শেষে স্ক্রিনশটসহ নক দাও @Sara_Apu"
+    },
+    {
+        "id": 2,
+        "title": "ইংলিশ মাস্টার বুক",
+        "description": "মেডিকেল অথবা ভার্সিটি ইংলিশের বেসিক স্ট্রং করার জন্য। আজীবন যতবার খুশি এক্সাম দিয়ে প্রস্তুতি যাচাইয়ের সুযোগ।",
+        "price": "২৫০ টাকা (এককালীন)",
+        "mentor": "সারা আপু",
+        "features": [
+            "১৩ হাজার+ MCQ ব্যাখ্যাসহ সমাধান শীট",
+            "মাস্টার বুক পিডিএফ ও এনালাইসিস নোট",
+            "মাস্টার বুক রিভিশন শর্ট ক্লাস",
+            "মেডিকেল ভর্তি পরীক্ষা ২৬-২৭ পর্যন্ত এক্সাম আপডেট",
+            "ব্যাসিক টু এডভান্স প্রস্তুতি ও নেগেটিভ মার্কিং প্র্যাকটিস"
+        ],
+        "payment_instruction": "বিকাশ/নগদ (সেন্ডমানি): 01648464699। পেমেন্ট শেষে নক দাও @Sara_Apu"
+    },
+    {
+        "id": 3,
+        "title": "প্রিমিয়াম কুইজ ব্যাচ",
+        "description": "মেইনবুকের প্রতিটি পৃষ্ঠা থেকে কুইজ সলভের মাধ্যমে বেসিক ঘাটতি দূর করার কোর্স। একবার সাবস্ক্রিপশন কিনলে আজীবনের জন্য এক্সেস।",
+        "price": "১৫০ টাকা",
+        "mentor": "সারা আপু",
+        "features": [
+            "টোটাল ১ লাখ+ কুইজ ও ব্যাখ্যাসহ সমাধান",
+            "মেইনবুকের প্রতিটি পৃষ্ঠা থেকে কুইজ সলভ",
+            "আজীবন এক্সাম এক্সেস"
+        ],
+        "payment_instruction": "বিকাশ/নগদ (সেন্ডমানি): 01648464699। এক্সেস পেতে নক দাও @Sara_Apu"
+    },
+    {
+        "id": 4,
+        "title": "DCU FINAL EXAM BATCH",
+        "description": "শেষ মুহূর্তের সেরা প্রস্তুতির জন্য প্রচুর এক্সামের সুযোগ সম্বলিত ব্যাচ।",
+        "price": "১০০ টাকা",
+        "mentor": "সারা আপু",
+        "features": [
+            "ডেইলি এক্সাম (৫০ মার্ক)",
+            "প্রতিদিন দুইবার এক্সাম (দুপুর ৩টা ও রাত ৯টা)",
+            "সারপ্রাইজ এক্সাম ও সাবজেক্ট ফাইনাল এক্সাম",
+            "DCU স্ট্যান্ডার্ড মডেল টেস্ট",
+            "রেগুলার গাইডলাইন এবং মেন্টরশীপ"
+        ],
+        "payment_instruction": "বিকাশ/নগদ (সেন্ডমানি): 01648464699। পেমেন্ট শেষে স্ক্রিনশটসহ নক দাও @Sara_Apu"
+    },
+    {
+        "id": 5,
+        "title": "HSC 26 | Final Push & A+ Mission",
+        "description": "সিলেবাস অসম্পূর্ণতা, পড়া মনে না থাকা বা গাইডলাইনের অভাব দূর করার লক্ষ্যে ফুল মেন্টরশিপ, অ্যাকাউন্টেবিলিটি এবং এক্সাম সাপোর্ট[span_0](start_span)[span_0](end_span).",
+        "price": "১৫০ টাকা[span_1](start_span)[span_1](end_span)",
+        "mentor": "সারা আপু[span_2](start_span)[span_2](end_span)",
+        "features": [
+            "দৈনিক রুটিন: সকাল ৮টা (Practice Sheet), সন্ধ্যা ৭টা (Homework Submission), রাত ৮টা (Daily Exam), রাত ১০টা (Doubt Solving & Mental Support)[span_3](start_span)[span_3](end_span)",
+            "মূল সেবা: Daily Practice Sheet, Daily Exam, Homework Tracking, Subject-wise Suggestion, Short Note & Guideline[span_4](start_span)[span_4](end_span)",
+            "বিশেষ সুবিধা: Final Suggestion, Exclusive Practice Sheet, Short Note, Last Minute Guideline, Important Question Discussion, Exam Hall Strategy[span_5](start_span)[span_5](end_span)"
+        ],
+        "payment_instruction": "বিস্তারিত জানতে বা জয়েন করতে ইনবক্স করো @Sara_Apu[span_6](start_span)[span_6](end_span)"
     }
 ]
