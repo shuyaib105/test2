@@ -1,34 +1,18 @@
 [
   {
-    "title": "পিএইচপি ও মাইএসকিউএল হ্যান্ডবুক",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_php.jpg",
-    "desc": "ওয়েব ডেভেলপমেন্টের জন্য পিএইচপি ও ডাটাবেসের সহজ গাইড, প্রজেক্ট সহ।",
+    "title": "অনুশীলনীর অল রাইটার এমসিকিউ ই-বুক",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_chemistry1.jpg",
+    "desc": "বিষয় - রসায়ন ১ম পত্র। লেখক - হাজারী, কবির, গুহ, লিংকন স্যার। ব্যাখ্যাসহ সমাধান।",
     "type": "premium",
-    "price": "৩৫০ টাকা",
-    "demo_link": "https://drive.google.com/file/d/1samplephp/preview"
+    "price": "২০০ টাকা",
+    "demo_link": "https://drive.google.com/file/d/1samplechem1/preview"
   },
   {
-    "title": "আধুনিক বাংলা রচনা ও ডিজিটাল মার্কেটিং",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_marketing.jpg",
-    "desc": "ফ্রিল্যান্সিং ও কন্টেন্ট ক্রিয়েশন টিপস, কেস স্টাডি।",
-    "type": "free",
-    "price": "০ টাকা",
-    "demo_link": "https://drive.google.com/file/d/1samplefree/preview"
-  },
-  {
-    "title": "এডোবি ইলাস্ট্রেটর মাস্টারক্লাস নোটস",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_illustrator.jpg",
-    "desc": "ইলাস্ট্রেটরের শর্টকাট, ডিজাইন টেকনিক ও প্র্যাকটিস ফাইল।",
+    "title": "অনুশীলনীর অল রাইটার এমসিকিউ ই-বুক",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_chemistry2.jpg",
+    "desc": "বিষয় - রসায়ন ২য় পত্র। লেখক - হাজারী, কবির, গুহ, লিংকন স্যার। ব্যাখ্যাসহ সমাধান।",
     "type": "premium",
-    "price": "২৯৯ টাকা",
-    "demo_link": "https://drive.google.com/file/d/1sampleai/preview"
-  },
-  {
-    "title": "শর্টকাট টু ইংলিশ গ্রামার",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/ebook_grammar.jpg",
-    "desc": "বিসিএস, ব্যাংক ও চাকরির পরীক্ষার জন্য ইংলিশ গ্রামার টিপস।",
-    "type": "free",
-    "price": "০ টাকা",
-    "demo_link": "https://drive.google.com/file/d/1samplegrammar/preview"
+    "price": "২০০ টাকা",
+    "demo_link": "https://drive.google.com/file/d/1samplechem2/preview"
   }
 ]
