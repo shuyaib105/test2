@@ -75,46 +75,55 @@
         .telegram-btn:hover {
             transform: translateY(-2px);
         }
-        /* ট্যাব বাটন */
+
+        /* ট্যাব বাটন - বক্স সিস্টেম (গ্রুপ কার্ড) */
+        .tab-buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 32px;
+        }
         .tab-buttons {
             display: flex;
             flex-wrap: nowrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 32px;
+            gap: 8px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 60px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2edf2;
+            backdrop-filter: blur(2px);
             overflow-x: auto;
-            padding-bottom: 6px;
             scrollbar-width: thin;
         }
         .tab-btn {
-            background: white;
-            border: 1px solid #cbdde9;
+            background: transparent;
+            border: none;
             font-weight: 600;
-            font-size: 0.8rem;
-            padding: 7px 18px;
+            font-size: 0.85rem;
+            padding: 8px 20px;
             border-radius: 40px;
             cursor: pointer;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             color: #1e5a7a;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
         }
         .tab-btn i {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         .tab-btn.active {
             background: #1f6e8c;
             color: white;
-            border-color: #1f6e8c;
             box-shadow: 0 2px 8px rgba(31,110,140,0.2);
         }
         .tab-btn:hover:not(.active) {
-            background: #eef3fc;
-            border-color: #1f6e8c;
+            background: #e6f0f5;
+            color: #0f4c5f;
         }
-        /* স্লাইডার */
+
+        /* স্লাইডার - নিচে বামে অ্যানিমেটেড পেজিনেশন */
         .fb-cover-slider {
             margin: 5px 0 40px;
             border-radius: 28px;
@@ -129,9 +138,38 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        .slide.active { opacity: 1; z-index: 1; }
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        /* স্লাইডার পেজিনেশন - নিচে বামে */
+        .slider-pagination {
+            position: absolute;
+            bottom: 16px;
+            left: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+            background: rgba(10, 43, 56, 0.5);
+            backdrop-filter: blur(6px);
+            padding: 6px 14px;
+            border-radius: 40px;
+        }
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,240,0.6);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .slider-dot.active {
+            width: 24px;
+            background: #ffb347;
+            border-radius: 8px;
+        }
         /* ট্যাব কন্টেন্ট */
         .tab-content-area {
             background: white;
@@ -230,7 +268,7 @@
             align-items: center;
             gap: 6px;
         }
-        /* সাফল্য লিস্ট স্টাইল - বামে ছবি ডানে টেক্সট */
+        /* সাফল্য লিস্ট স্টাইল */
         .success-list {
             display: flex;
             flex-direction: column;
@@ -283,7 +321,7 @@
             line-height: 1.5;
             font-size: 0.9rem;
         }
-        /* মডাল স্টাইল */
+        /* মডাল */
         .pdf-modal {
             display: none;
             position: fixed;
@@ -332,6 +370,8 @@
             .success-item { flex-direction: column; align-items: center; text-align: center; }
             .success-img { width: 100px; height: 100px; }
             .pdf-iframe { height: 60vh; }
+            .tab-buttons { padding: 6px 10px; gap: 4px; }
+            .tab-btn { padding: 6px 14px; font-size: 0.75rem; }
         }
         /* ডিটেইল পেজ */
         .detail-page-container {
@@ -394,7 +434,6 @@
             gap: 12px;
             margin-top: 20px;
         }
-        /* ফুটার */
         .footer {
             background: #0a2b38;
             color: #e0f0f5;
@@ -490,17 +529,22 @@
         </div>
     </div>
 
-    <div class="fb-cover-slider">
+    <!-- স্লাইডার + নিচে বামে পেজিনেশন -->
+    <div class="fb-cover-slider" id="mainSlider">
         <img class="slide active" src="https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/IMG_20260612_011711_647.jpg" alt="শিক্ষা">
         <img class="slide" src="https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/IMG_20260612_011709_224.jpg" alt="ক্লাস">
         <img class="slide" src="https://github.com/shuyaib105/test2/blob/main/IMG_20260612_011708_563.jpg?raw=true" alt="সাফল্য">
+        <div class="slider-pagination" id="sliderPagination"></div>
     </div>
 
-    <div class="tab-buttons">
-        <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্স</button>
-        <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক</button>
-        <button class="tab-btn" data-tab="successTab"><i class="fas fa-trophy"></i> সাফল্য</button>
-        <button class="tab-btn" data-tab="reviewTab"><i class="fas fa-star"></i> রিভিউ</button>
+    <!-- ট্যাব বাটন – বক্স সিস্টেমে গ্রুপেড -->
+    <div class="tab-buttons-wrapper">
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্স</button>
+            <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক</button>
+            <button class="tab-btn" data-tab="successTab"><i class="fas fa-trophy"></i> সাফল্য</button>
+            <button class="tab-btn" data-tab="reviewTab"><i class="fas fa-star"></i> রিভিউ</button>
+        </div>
     </div>
 
     <div class="tab-content-area">
@@ -526,7 +570,7 @@
     </div>
 </div>
 
-<!-- PDF মডাল (গুগল ড্রাইভ ডেমো) -->
+<!-- PDF মডাল -->
 <div id="pdfModal" class="pdf-modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -625,7 +669,7 @@
     function showDetailPage(course) {
         document.querySelector('.tab-content-area').style.display = 'none';
         document.querySelector('.fb-cover-slider').style.display = 'none';
-        document.querySelector('.tab-buttons').style.display = 'none';
+        document.querySelector('.tab-buttons-wrapper').style.display = 'none';
         document.getElementById('detailPage').classList.add('active-detail');
         document.getElementById('detailCover').src = course.img;
         document.getElementById('detailTitle').innerText = course.title;
@@ -643,10 +687,9 @@
         document.getElementById('detailPage').classList.remove('active-detail');
         document.querySelector('.tab-content-area').style.display = 'block';
         document.querySelector('.fb-cover-slider').style.display = 'block';
-        document.querySelector('.tab-buttons').style.display = 'flex';
+        document.querySelector('.tab-buttons-wrapper').style.display = 'flex';
     }
 
-    // ই-বুক রেন্ডার (ডেমো বাটন সহ)
     function renderEbooks(filter = '') {
         const container = document.getElementById('ebooksTab');
         const filtered = ebooksData.filter(b => b.title.toLowerCase().includes(filter.toLowerCase()));
@@ -674,15 +717,11 @@
                 </div>
             </div>
         `).join('');
-        // ডেমো বাটন ইভেন্ট
         document.querySelectorAll('.demo-pdf-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const demoUrl = btn.dataset.demo;
-                if (demoUrl) {
-                    openPdfModal(demoUrl, btn.dataset.title);
-                } else {
-                    toastMsg("এই ই-বুকের জন্য ডেমো লিংক উপলব্ধ নয়।");
-                }
+                if (demoUrl) openPdfModal(demoUrl, btn.dataset.title);
+                else toastMsg("এই ই-বুকের জন্য ডেমো লিংক উপলব্ধ নয়।");
             });
         });
         document.querySelectorAll('.download-free').forEach(btn => {
@@ -699,13 +738,10 @@
                 window.open(`https://wa.me/8801648464699?text=${encodeURIComponent(`আমি "${title}" ই-বুকটি কিনতে চাই, মূল্য: ${price}।`)}`, '_blank');
             });
         });
-        const searchInput = document.getElementById('ebookSearch');
-        const searchBtn = document.getElementById('searchEbookBtn');
-        if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
-        if(searchBtn) searchBtn.addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
+        document.getElementById('ebookSearch')?.addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
+        document.getElementById('searchEbookBtn')?.addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
     }
 
-    // PDF মডাল ওপেন
     function openPdfModal(pdfUrl, title) {
         const modal = document.getElementById('pdfModal');
         const iframe = document.getElementById('pdfIframe');
@@ -727,7 +763,6 @@
         modal.onclick = (e) => { if(e.target === modal) { iframe.src = ''; modal.style.display = 'none'; } };
     }
 
-    // সাফল্য (ছবি বামে + ডানে বর্ণনা)
     function renderSuccess() {
         const container = document.getElementById('successTab');
         if (!successData.length) { container.innerHTML = '<p class="loading">কোনো সাফল্যের গল্প পাওয়া যায়নি</p>'; return; }
@@ -779,13 +814,49 @@
     }
     tabs.forEach(btn => btn.addEventListener('click', () => { if(document.getElementById('detailPage').classList.contains('active-detail')) return; activateTab(btn.dataset.tab); }));
 
-    // স্লাইডার
-    let slides = document.querySelectorAll('.slide'), currentSlide = 0;
-    function showSlide(i) { slides.forEach((s, idx) => s.classList.toggle('active', idx === i)); }
-    function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
-    let interval = setInterval(nextSlide, 4500);
-    const sliderDiv = document.querySelector('.fb-cover-slider');
-    if(sliderDiv) { sliderDiv.addEventListener('mouseenter', () => clearInterval(interval)); sliderDiv.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4500); }); }
+    // ----- স্লাইডার + নিচে বামে অ্যানিমেটেড পেজিনেশন -----
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    const paginationDiv = document.getElementById('sliderPagination');
+    function buildPagination() {
+        paginationDiv.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (i === currentSlide) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentSlide = i;
+                showSlide(currentSlide);
+                resetInterval();
+            });
+            paginationDiv.appendChild(dot);
+        }
+    }
+    function showSlide(index) {
+        slides.forEach((s, i) => {
+            s.classList.toggle('active', i === index);
+        });
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+    let slideInterval = setInterval(nextSlide, 4500);
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4500);
+    }
+    buildPagination();
+    const slider = document.querySelector('.fb-cover-slider');
+    if(slider) {
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', () => { slideInterval = setInterval(nextSlide, 4500); });
+    }
 
     document.getElementById('backToHomeBtn').addEventListener('click', hideDetailAndShowMain);
     loadAllData();
