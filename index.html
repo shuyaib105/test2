@@ -75,7 +75,7 @@
         .telegram-btn:hover {
             transform: translateY(-2px);
         }
-        /* ছোট ট্যাব বাটন - এক লাইনে, কমপ্যাক্ট */
+        /* ট্যাব বাটন */
         .tab-buttons {
             display: flex;
             flex-wrap: nowrap;
@@ -150,7 +150,7 @@
             gap: 28px;
             margin-top: 25px;
         }
-        .course-card, .ebook-card, .success-card, .review-card {
+        .course-card, .ebook-card, .review-card {
             background: white;
             border-radius: 24px;
             overflow: hidden;
@@ -160,7 +160,7 @@
             border: 1px solid #eaf3fa;
         }
         .course-card:hover, .ebook-card:hover { transform: translateY(-5px); box-shadow: 0 15px 28px rgba(0,0,0,0.1); }
-        .course-img, .student-img {
+        .course-img, .ebook-img {
             width: 100%;
             height: 170px;
             object-fit: cover;
@@ -182,8 +182,9 @@
             display: flex;
             gap: 12px;
             margin-top: 16px;
+            flex-wrap: wrap;
         }
-        .btn-enroll, .btn-details {
+        .btn-enroll, .btn-details, .btn-demo {
             padding: 8px 18px;
             border-radius: 40px;
             font-weight: 700;
@@ -193,6 +194,7 @@
         }
         .btn-enroll { background: #1f6e8c; color: white; }
         .btn-details { background: #f0f4fa; color: #1f6e8c; border: 1px solid #cbdde9; }
+        .btn-demo { background: #ffb347; color: #2c3e2f; border: none; }
         .search-ebook {
             display: flex;
             gap: 12px;
@@ -227,6 +229,109 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+        }
+        /* সাফল্য লিস্ট স্টাইল - বামে ছবি ডানে টেক্সট */
+        .success-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .success-item {
+            display: flex;
+            gap: 20px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf2;
+            transition: 0.2s;
+        }
+        .success-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .success-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .success-details {
+            flex: 1;
+        }
+        .success-details h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1f6e8c;
+            margin-bottom: 5px;
+        }
+        .achievement-badge {
+            background: #fef3e2;
+            color: #c97e00;
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+        }
+        .success-details p {
+            color: #2d4a5f;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        /* মডাল স্টাইল */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+        }
+        .modal-header {
+            background: #1f6e8c;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .modal-header h3 {
+            font-weight: 700;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .pdf-iframe {
+            width: 100%;
+            height: 70vh;
+            border: none;
+        }
+        @media (max-width: 750px) {
+            .success-item { flex-direction: column; align-items: center; text-align: center; }
+            .success-img { width: 100px; height: 100px; }
+            .pdf-iframe { height: 60vh; }
         }
         /* ডিটেইল পেজ */
         .detail-page-container {
@@ -289,7 +394,7 @@
             gap: 12px;
             margin-top: 20px;
         }
-        /* উন্নত ফুটার */
+        /* ফুটার */
         .footer {
             background: #0a2b38;
             color: #e0f0f5;
@@ -363,50 +468,12 @@
             background: #ffb347;
             transform: translateY(-3px);
         }
-        .newsletter-box {
-            display: flex;
-            gap: 8px;
-            background: #1f5065;
-            border-radius: 50px;
-            padding: 4px;
-            margin-top: 10px;
-        }
-        .newsletter-box input {
-            background: none;
-            border: none;
-            padding: 10px 14px;
-            color: white;
-            outline: none;
-            flex: 1;
-            font-family: inherit;
-            font-size: 0.8rem;
-        }
-        .newsletter-box input::placeholder {
-            color: #b0d4e8;
-        }
-        .newsletter-box button {
-            background: #ffb347;
-            border: none;
-            border-radius: 50px;
-            padding: 8px 18px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
         .footer-bottom {
             text-align: center;
             border-top: 1px solid #2b576b;
             padding-top: 25px;
             margin-top: 10px;
             font-size: 0.75rem;
-        }
-        @media (max-width: 750px) {
-            .tab-btn { padding: 5px 14px; font-size: 0.7rem; }
-            .detail-content { padding: 22px; }
-            .detail-title { font-size: 1.5rem; }
-            .footer-grid { flex-direction: column; text-align: center; align-items: center; }
-            .social-icons { justify-content: center; }
-            .footer-col h4:after { left: 50%; transform: translateX(-50%); }
         }
         .loading { text-align: center; padding: 40px; font-size: 1rem; color: #1f6e8c; }
     </style>
@@ -417,21 +484,18 @@
     <div class="header">
         <div class="brand-area">
             <div class="site-title"><h1>SSPathshala</h1></div>
-    
         </div>
         <div class="telegram-btn">
             <a href="https://t.me/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i> জয়েন করুন</a>
         </div>
     </div>
 
-    <!-- স্লাইডার -->
     <div class="fb-cover-slider">
         <img class="slide active" src="https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/IMG_20260612_011711_647.jpg" alt="শিক্ষা">
         <img class="slide" src="https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/IMG_20260612_011709_224.jpg" alt="ক্লাস">
         <img class="slide" src="https://github.com/shuyaib105/test2/blob/main/IMG_20260612_011708_563.jpg?raw=true" alt="সাফল্য">
     </div>
 
-    <!-- ছোট ট্যাব বাটন (এক লাইনে) -->
     <div class="tab-buttons">
         <button class="tab-btn active" data-tab="coursesTab"><i class="fas fa-graduation-cap"></i> কোর্স</button>
         <button class="tab-btn" data-tab="ebooksTab"><i class="fas fa-book-open"></i> ই-বুক</button>
@@ -454,27 +518,35 @@
         <button class="back-button" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> পেছনে যান</button>
         <h1 id="detailTitle" class="detail-title"></h1>
         <div id="detailFeatures" class="detail-features"></div>
-        <div id="detailMentor" class="mentor-box" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
-        <div id="detailConduct" class="conduct-box" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
-        <div id="detailExtra" class="extra-box" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
-        <div id="detailPrice" class="price-large" style="font-size:1.6rem; font-weight:800; color:#e67e22;"></div>
+        <div id="detailMentor" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
+        <div id="detailConduct" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
+        <div id="detailExtra" style="background:#f8fafd; padding:16px 20px; border-radius:20px; margin:18px 0;"></div>
+        <div id="detailPrice" style="font-size:1.6rem; font-weight:800; color:#e67e22;"></div>
         <a id="detailWhatsappLink" href="#" target="_blank" class="whatsapp-btn-large"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে ভর্তি হতে চাই</a>
     </div>
 </div>
 
-<!-- উন্নত ফুটার -->
+<!-- PDF মডাল (গুগল ড্রাইভ ডেমো) -->
+<div id="pdfModal" class="pdf-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-file-pdf"></i> ই-বুক ডেমো (পিডিএফ প্রিভিউ)</h3>
+            <button class="close-modal">&times;</button>
+        </div>
+        <iframe id="pdfIframe" class="pdf-iframe" src=""></iframe>
+    </div>
+</div>
+
+<!-- ফুটার -->
 <div class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
             <div class="footer-col">
                 <h4>কমিউনিটি</h4>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/share/g/19zJUTkW3f/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://t.me/sspathshala" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                                      <a href="https://youtube.com/@ss_pathshala008?si=RqTpUi3QaHyZ-Z8f" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-                           </div>
+                    <a href="https://youtube.com/@ss_pathshala008?si=RqTpUi3QaHyZ-Z8f" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -538,7 +610,7 @@
             btn.addEventListener('click', () => {
                 const id = parseInt(btn.dataset.id);
                 const course = coursesData.find(c => c.id === id);
-                window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`হ্যালো, আমি "${course.title}" কোর্সে এনরোল করতে আগ্রহী।`)}`, '_blank');
+                window.open(`https://wa.me/8801648464699?text=${encodeURIComponent(`হ্যালো, আমি "${course.title}" কোর্সে এনরোল করতে আগ্রহী।`)}`, '_blank');
             });
         });
         document.querySelectorAll('#coursesContainer .btn-details').forEach(btn => {
@@ -574,6 +646,7 @@
         document.querySelector('.tab-buttons').style.display = 'flex';
     }
 
+    // ই-বুক রেন্ডার (ডেমো বাটন সহ)
     function renderEbooks(filter = '') {
         const container = document.getElementById('ebooksTab');
         const filtered = ebooksData.filter(b => b.title.toLowerCase().includes(filter.toLowerCase()));
@@ -589,33 +662,94 @@
         if (!filtered.length) { grid.innerHTML = '<p style="text-align:center;">🔍 কোনো ই-বুক খুঁজে পাওয়া যায়নি</p>'; return; }
         grid.innerHTML = filtered.map(book => `
             <div class="ebook-card">
-                <img class="student-img" src="${book.img}">
+                <img class="ebook-img" src="${book.img}" alt="${book.title}">
                 <div class="card-info">
                     <span style="background:#e0f2fe; padding:4px 12px; border-radius:40px; font-size:0.7rem; font-weight:600;">${book.type === 'free' ? '📘 ফ্রি' : '💎 প্রিমিয়াম'}</span>
                     <h3>${book.title}</h3>
                     <p>${book.desc}</p>
-                    ${book.type === 'free' ? `<button class="download-free" style="background:#eef2fa; border:none; padding:7px 18px; border-radius:40px; margin-top:10px; font-weight:600;">ডাউনলোড লিংক</button>` : `<button class="whatsapp-buy buy-paid" data-title="${book.title}" data-price="${book.price}"><i class="fab fa-whatsapp"></i> কিনুন</button>`}
+                    <div class="button-group">
+                        <button class="btn-demo demo-pdf-btn" data-demo="${book.demo_link || ''}" data-title="${book.title}"><i class="fas fa-eye"></i> ডেমো দেখুন</button>
+                        ${book.type === 'free' ? `<button class="download-free" data-link="${book.demo_link}"><i class="fas fa-download"></i> ডাউনলোড লিংক</button>` : `<button class="whatsapp-buy buy-paid" data-title="${book.title}" data-price="${book.price}"><i class="fab fa-whatsapp"></i> কিনুন (${book.price})</button>`}
+                    </div>
                 </div>
             </div>
         `).join('');
-        document.querySelectorAll('.download-free').forEach(btn => btn.addEventListener('click', () => toastMsg("📖 ফ্রি ই-বুক লিংক পেতে টেলিগ্রাম চ্যানেল জয়েন করুন।")));
-        document.querySelectorAll('.buy-paid').forEach(btn => btn.addEventListener('click', () => { const title = btn.dataset.title; const price = btn.dataset.price; window.open(`https://wa.me/8801700000000?text=${encodeURIComponent(`আমি "${title}" ই-বুকটি কিনতে চাই, মূল্য: ${price}।`)}`, '_blank'); }));
-        document.getElementById('ebookSearch')?.addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
-        document.getElementById('searchEbookBtn')?.addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
+        // ডেমো বাটন ইভেন্ট
+        document.querySelectorAll('.demo-pdf-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const demoUrl = btn.dataset.demo;
+                if (demoUrl) {
+                    openPdfModal(demoUrl, btn.dataset.title);
+                } else {
+                    toastMsg("এই ই-বুকের জন্য ডেমো লিংক উপলব্ধ নয়।");
+                }
+            });
+        });
+        document.querySelectorAll('.download-free').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const link = btn.dataset.link;
+                if(link) window.open(link, '_blank');
+                else toastMsg("ফ্রি ই-বুক ডাউনলোড লিংক পাননি? টেলিগ্রাম চ্যানেল জয়েন করুন।");
+            });
+        });
+        document.querySelectorAll('.buy-paid').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const title = btn.dataset.title;
+                const price = btn.dataset.price;
+                window.open(`https://wa.me/8801648464699?text=${encodeURIComponent(`আমি "${title}" ই-বুকটি কিনতে চাই, মূল্য: ${price}।`)}`, '_blank');
+            });
+        });
+        const searchInput = document.getElementById('ebookSearch');
+        const searchBtn = document.getElementById('searchEbookBtn');
+        if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') renderEbooks(e.target.value); });
+        if(searchBtn) searchBtn.addEventListener('click', () => renderEbooks(document.getElementById('ebookSearch').value));
     }
 
+    // PDF মডাল ওপেন
+    function openPdfModal(pdfUrl, title) {
+        const modal = document.getElementById('pdfModal');
+        const iframe = document.getElementById('pdfIframe');
+        if (!pdfUrl) return;
+        let embedUrl = pdfUrl;
+        if (pdfUrl.includes('drive.google.com/file/d/')) {
+            const match = pdfUrl.match(/\/d\/(.+?)\//);
+            if (match) embedUrl = `https://drive.google.com/file/d/${match[1]}/preview`;
+        } else if (pdfUrl.includes('drive.google.com/open')) {
+            const id = new URL(pdfUrl).searchParams.get('id');
+            if(id) embedUrl = `https://drive.google.com/file/d/${id}/preview`;
+        }
+        iframe.src = embedUrl;
+        modal.style.display = 'flex';
+        document.querySelector('.close-modal').onclick = () => {
+            iframe.src = '';
+            modal.style.display = 'none';
+        };
+        modal.onclick = (e) => { if(e.target === modal) { iframe.src = ''; modal.style.display = 'none'; } };
+    }
+
+    // সাফল্য (ছবি বামে + ডানে বর্ণনা)
     function renderSuccess() {
         const container = document.getElementById('successTab');
-        container.innerHTML = `<h2><i class="fas fa-medal"></i> সাফল্য — চান্সপ্রাপ্ত শিক্ষার্থী</h2><div class="card-grid" id="successContainer"></div>`;
-        const grid = document.getElementById('successContainer');
-        grid.innerHTML = successData.map(s => `<div class="success-card"><img class="student-img" src="${s.img}"><div class="card-info"><h3>${s.name}</h3><p><i class="fas fa-trophy" style="color:#f5b342;"></i> <strong>${s.achievement}</strong></p><p>${s.description}</p></div></div>`).join('');
+        if (!successData.length) { container.innerHTML = '<p class="loading">কোনো সাফল্যের গল্প পাওয়া যায়নি</p>'; return; }
+        container.innerHTML = `<h2><i class="fas fa-medal"></i> সাফল্য — চান্সপ্রাপ্ত শিক্ষার্থী</h2><div class="success-list" id="successList"></div>`;
+        const listDiv = document.getElementById('successList');
+        listDiv.innerHTML = successData.map(s => `
+            <div class="success-item">
+                <img class="success-img" src="${s.img}" alt="${s.name}">
+                <div class="success-details">
+                    <h3>${s.name}</h3>
+                    <div class="achievement-badge"><i class="fas fa-graduation-cap"></i> ${s.achievement}</div>
+                    <p><i class="fas fa-quote-left"></i> ${s.description}</p>
+                </div>
+            </div>
+        `).join('');
     }
 
     function renderReviews() {
         const container = document.getElementById('reviewTab');
         container.innerHTML = `<h2><i class="fas fa-comment-dots"></i> রিভিউ — সাফল্যের অনুপ্রেরণা</h2><div class="card-grid" id="reviewContainer"></div>`;
         const grid = document.getElementById('reviewContainer');
-        grid.innerHTML = reviewsData.map(r => `<div class="review-card"><img class="student-img" src="${r.img}"><div class="card-info"><h3>${r.name}</h3><p><i class="fas fa-quote-left" style="color:#1f6e8c;"></i> ${r.story}</p></div></div>`).join('');
+        grid.innerHTML = reviewsData.map(r => `<div class="review-card"><img class="course-img" src="${r.img}"><div class="card-info"><h3>${r.name}</h3><p><i class="fas fa-quote-left" style="color:#1f6e8c;"></i> ${r.story}</p></div></div>`).join('');
     }
 
     function toastMsg(msg) {
