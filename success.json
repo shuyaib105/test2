@@ -1,26 +1,32 @@
 [
   {
-    "name": "মারুফা আক্তার স্নেহা",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/success_marufa.jpg",
-    "achievement": "৩৪তম বিসিএস - প্রশাসন ক্যাডার",
-    "description": "এসএসপাথশালার মেন্টরশিপ ও মডেল টেস্ট সিরিজ আমাকে স্বপ্নের চাকরি পেতে দারুণ সাহায্য করেছে।"
+    "name": "শাহরিন",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/shahrin.jpg",
+    "achievement": "শহীদ সোহরাওয়ার্দী মেডিকেল কলেজ",
+    "description": "আলহামদুলিল্লাহ।"
   },
   {
-    "name": "রাকিব হাসান",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/success_rakib.jpg",
-    "achievement": "বাংলাদেশ ব্যাংক - অ্যাসিস্ট্যান্ট ডিরেক্টর (২০২৪)",
-    "description": "‘ব্যাংক ক্যারিয়ার কোর্স’ থেকে রিয়েল প্র্যাকটিস ও স্পেশালাইজড ক্লাস পেয়েছি। স্যারদের অক্লান্ত পরিশ্রম সত্যিই অনন্য।"
+    "name": "শাফায়াত",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/shafayat.jpg",
+    "achievement": "রাজশাহী মেডিকেল কলেজ",
+    "description": "আলহামদুলিল্লাহ।"
   },
   {
-    "name": "তানিয়া রহমান",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/success_tania.jpg",
-    "achievement": "গুগল সার্টিফাইড ইউআই/ইউএক্স ডিজাইনার",
-    "description": "গ্রাফিক্স ডিজাইন ব্যাচে ভর্তি হয়ে এখন আন্তর্জাতিক ক্লায়েন্টদের জন্য কাজ করছি। লাইভ প্রজেক্ট ও পোর্টফোলিও সাপোর্ট অসাধারণ ছিল।"
+    "name": "আনিকা",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/anika.jpg",
+    "achievement": "ময়মনসিংহ মেডিকেল কলেজ",
+    "description": "আলহামদুলিল্লাহ।"
   },
   {
-    "name": "আশিকুর রহমান",
-    "img": "https://raw.githubusercontent.com/shuyaib105/test2/main/success_ashik.jpg",
-    "achievement": "প্রাইম ব্যাংক প্রোবেশনারী অফিসার (২০২৫)",
-    "description": "মডেল টেস্ট ও টাইম ম্যানেজমেন্ট টেকনিক পেয়ে আমি ব্যাংক জব ক্লিয়ার করি। দলগত সাপোর্ট দারুণ।"
+    "name": "মাশফিয়া",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/%E0%A6%AE%E0%A6%BE%E0%A6%B6%E0%A6%AB%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE.jpg",
+    "achievement": "সাতক্ষীরা মেডিকেল কলেজ & ঢাকা বিশ্ববিদ্যালয়, জীববিজ্ঞান বিভাগ",
+    "description": "আলহামদুলিল্লাহ।"
+  },
+  {
+    "name": "মাহিরা",
+    "img": "https://raw.githubusercontent.com/shuyaib105/test2/refs/heads/main/mahira.jpg",
+    "achievement": "চট্টগ্রাম মেডিকেল কলেজ",
+    "description": "আলহামদুলিল্লাহ।"
   }
 ]
